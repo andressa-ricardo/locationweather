@@ -28,6 +28,22 @@ Este projeto é um serviço de consulta de clima que consome dados da API OpenWe
    OPENWEATHER_API_KEY=SEU_API_KEY_AQUI
    ```
 
+## Obtendo a API Key do Open Weather
+Para utilizar a API, é necessário obter uma API Key do site. Siga os passos abaixo:
+
+1. **Acesse o site**
+   - Vá para https://openweathermap.org/ e crie uma conta caso ainda não tenha uma.
+
+2. **Cadastre-se ou faça login**
+   - Se já tiver uma conta, basta fazer login. Caso contrário, clique em "Registrar" e siga o processo de cadastro.
+
+3. **Obtenha sua API Key**
+   - Após o login, vá para a seção "My profile" ou "My API Keys" no painel do usuário.
+   - Clique em "Gerar nova chave" e copie o código gerado.
+
+4. **Configure no projeto**
+   - No arquivo `.env`, substitua `SEU_API_KEY_AQUI` pela chave gerada.
+
 ## Rodando a Aplicação
 
 ### Rodando Localmente (Sem Docker)
@@ -50,7 +66,6 @@ A documentação da API está disponível no Swagger. Após iniciar a aplicaçã
 http://localhost:3000/api
 ```
 
-
 ## Como Usar
 
 ### Consultar clima de uma cidade
@@ -66,7 +81,6 @@ curl http://localhost:3000/weather?city=Rio%20de%20Janeiro
 ```json
 {
   "cidade": "Rio de Janeiro",
-  "estado": "Não disponível",
   "pais": "BR",
   "temperatura": "30 °C",
   "descricao": "céu limpo",
@@ -75,7 +89,7 @@ curl http://localhost:3000/weather?city=Rio%20de%20Janeiro
 }
 ```
 
-
 ## Considerações
 - Caso a cidade não seja encontrada, a API retornará um erro `404`.
 - Certifique-se de que sua API Key do OpenWeather está válida.
+
