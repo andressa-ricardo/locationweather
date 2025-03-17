@@ -27,6 +27,8 @@ export class WeatherService {
   private transformData(data: any): any {
     return {
       cidade: data.name,
+      estado: data?.state || 'Não disponível',
+      pais: data.sys.country,
       temperatura: `${data.main.temp} °C`,
       descricao: data.weather[0].description,
       umidade: `${data.main.humidity} %`,
