@@ -2,14 +2,14 @@
 
 Este projeto é um serviço de consulta de clima que consome dados da API OpenWeather.
 
-##  Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Node.js**
 - **NestJS**
 - **Axios**
 - **Docker e Docker Compose**
 
-##  Instalação
+## Instalação
 
 1. **Clone o repositório**
    ```sh
@@ -28,7 +28,7 @@ Este projeto é um serviço de consulta de clima que consome dados da API OpenWe
    OPENWEATHER_API_KEY=SEU_API_KEY_AQUI
    ```
 
-##  Rodando a Aplicação
+## Rodando a Aplicação
 
 ### Rodando Localmente (Sem Docker)
 ```sh
@@ -43,7 +43,15 @@ A aplicação estará disponível em `http://localhost:3000`.
    ```
 2. Acesse a API em `http://localhost:3000`.
 
-##  Como Usar
+## Documentação com Swagger
+A documentação da API está disponível no Swagger. Após iniciar a aplicação, acesse:
+
+```
+http://localhost:3000/api
+```
+
+
+## Como Usar
 
 ### Consultar clima de uma cidade
 
@@ -67,7 +75,7 @@ curl http://localhost:3000/weather?city=Rio%20de%20Janeiro
 }
 ```
 
-##  Considerações
+
+## Considerações
 - Caso a cidade não seja encontrada, a API retornará um erro `404`.
 - Certifique-se de que sua API Key do OpenWeather está válida.
-
