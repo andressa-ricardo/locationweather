@@ -12,8 +12,9 @@ export class WeatherService {
 
   async getWeather(city: string): Promise<any> {
     try {
+      const formattedCity = city.replace(/\s+/g, '+');
       const apiKey = this.configService.get<string>('OPENWEATHER_API_KEY');
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${formattedCity}&appid=${apiKey}&units=metric`;
       const response = await lastValueFrom(this.httpService.get(url));
       return this.transformData(response.data);
     } catch (error) {
