@@ -8,5 +8,4 @@ services:
       - .env
     volumes:
       - .:/app
-      - /app/node_modules
-    command: npm run dev
+    command: npm run start:prod
