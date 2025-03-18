@@ -3,7 +3,7 @@ import { WeatherService } from './weather.service';
 import { ApiTags, ApiQuery, ApiResponse } from '@nestjs/swagger';
 import { WeatherDto } from './weather.dto';
 
-@ApiTags('Weather')
+@ApiTags('Clima')
 @Controller('weather')
 export class WeatherController {
   constructor(private readonly weatherService: WeatherService) {}
