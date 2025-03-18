@@ -1,6 +1,6 @@
-# Weather API
+# LocationWeather API
 
-Este projeto é um serviço de consulta de clima que consome dados da API OpenWeather.
+Este projeto é um serviço de consulta de clima que consome dados da API OpenWeather e agora inclui funcionalidades para buscar informações climáticas a partir de CEPs brasileiros, além de um serviço dedicado apenas à consulta de CEPs.
 
 ## Tecnologias Utilizadas
 
@@ -89,7 +89,62 @@ curl http://localhost:3000/weather?city=Rio%20de%20Janeiro
 }
 ```
 
-## Considerações
-- Caso a cidade não seja encontrada, a API retornará um erro `404`.
-- Certifique-se de que sua API Key do OpenWeather está válida.
+### Consultar apenas informações de CEP (Apenas Brasil)
 
+**Endpoint:** `GET /cep/{CEP}`
+
+**Exemplo:**
+```sh
+curl http://localhost:3000/cep/01000-000
+```
+
+**Resposta esperada:**
+```json
+{
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "unidade": "",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "estado": "São Paulo",
+  "regiao": "Sudeste",
+}
+```
+
+
+### Serviço Location-Weather (Junção de CEP e Clima)
+A funcionalidade `location-weather` permite obter diretamente os dados climáticos apenas informando um CEP brasileiro. O sistema identifica automaticamente a localização e busca as condições climáticas na OpenWeather.
+
+**Endpoint:** `GET /location-weather?cep={CEP}`
+
+**Exemplo:**
+```sh
+curl http://localhost:3000/location-weather?cep=01000-000
+```
+
+**Resposta esperada:**
+```json
+{
+  "cep": "01001-000",
+  "cidade": "São Paulo",
+  "estado": "São Paulo",
+  "regiao": "Sudeste",
+  "temperatura": "27.51 °C",
+  "descricao": "clear sky",
+  "umidade": "67 %",
+  "vento": "2.57 m/s"
+}
+```
+
+## Considerações
+- Apenas CEPs brasileiros são aceitos para a funcionalidade de busca por CEP.
+- Caso o CEP seja inválido ou não encontrado, a API retornará um erro `404`.
+- Certifique-se de que sua API Key do OpenWeather está válida.
+---
+
+## Autor
+
+- **LinkedIn:** [Andressa Ricardo](https://www.linkedin.com/in/andressa-ricardo/)
+- **GitHub:** [andressa-ricardo](https://github.com/andressa-ricardo)
