@@ -6,10 +6,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Weather API')
-    .setDescription('API para obter informações climáticas')
+    .setTitle('LocationWeather API')
+    .setDescription('API para obter informações climáticas e de localização')
     .setVersion('1.0')
-    .addTag('Weather')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
