@@ -1,8 +1,17 @@
-FROM node:22.11.0
-WORKDIR /app
-COPY package.json package-lock.json ./
+FROM node:23-alpine3.20
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
 RUN npm install
-COPY . .
+
+COPY nest* ./
+COPY tsconfig*.json ./
+COPY src/ ./src/
+
 RUN npm run build
-CMD ["npm", "run", "start:prod"]
+
 EXPOSE 3000
+
+CMD ["node", "dist/main"]
